@@ -1,5 +1,5 @@
 from flask.ext.script import Manager
-# import flask and jinja2 
+# import flask and module to render the files in template directory 
 from flask import Flask, render_template
 from flask import request
 from flask import make_response
