@@ -5,4 +5,8 @@
 2. Hardware will be a 16G Raspberry PI 3 running Raspian
 3. Document as we go
 4.
+
+
+
+
 # svedka
