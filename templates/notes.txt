@@ -1,0 +1,5 @@
+- user.html notes
+# Testing the |capitalize capability in Jinja. Should make first letter of name capital
+# You can see the difference between the two commands in the output of the following:
+# http://x.x.x.x:5000/user/name
+# Also the pound # does not comment out text in html
