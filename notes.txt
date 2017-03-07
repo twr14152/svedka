@@ -1,0 +1,5 @@
+-To start web server
+
+	python fp1.py runserver --host 0.0.0.0
+
+ # The --host 0.0.0.0 makes the server available to hosts outside your local host

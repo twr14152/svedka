@@ -1,4 +1,5 @@
 from flask.ext.script import Manager
+# import flask and jinja2 
 from flask import Flask, render_template
 from flask import request
 from flask import make_response
@@ -14,10 +15,12 @@ manager = Manager(app)
 #    return '<h1>Test web page</h1>'
 @app.route('/index')
 def index():
+# call jinja template in template directory
     return render_template('index.html')
 
 @app.route('/user/<name>')
 def user(name):
+# call jinja template in templates directory
     return render_template('user.html', name=name)
 
 
