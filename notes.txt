@@ -20,4 +20,18 @@ These commands will:
  - activate the debugger
  - activate the automatic reloader
  - enable debug mode on Flask app
- - only work in local mode
+
+(flaskproject1) <>@<>:~/Dev/flaskproject1/project1 $ flask run --host=0.0.0.0
+ * Serving Flask app "hello"
+ * Forcing debug mode on
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger pin code: 125-754-979
+^C(flaskproject1) <>@<>:~/Dev/flaskproject1/project1 $ export FLASK_DEBUG=0
+(flaskproject1) <>@<>:~/Dev/flaskproject1/project1 $ flask run --host=0.0.0.0
+ * Serving Flask app "hello"
+ * Forcing debug mode off
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+^C(flaskproject1) <>@<>:~/Dev/flaskproject1/project1 $ 
+
