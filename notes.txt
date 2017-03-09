@@ -20,3 +20,4 @@ These commands will:
  - activate the debugger
  - activate the automatic reloader
  - enable debug mode on Flask app
+ - only work in local mode
