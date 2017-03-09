@@ -1,9 +1,12 @@
 -To start web server
+# Believe this to be the older version for starting the server
+
 $ python hello.py runserver --host 0.0.0.0
+
 # The --host 0.0.0.0 makes the server available to hosts outside your local host
 # It also disables debugging 
 
-Or -----
+# This is the way the way the most recent flasks docs showed to start web service
 
 $ export FLASK_APP=hello.py
 $ flask run --host=0.0.0.0
