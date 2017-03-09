@@ -2,13 +2,21 @@ To start web server
 
 This is the way the way the most recent flasks docs showed to start web service
 
-$ export FLASK_APP=hello.py
-$ flask run --host=0.0.0.0
+$export FLASK_APP=hello.py
+$flask run --host=0.0.0.0
 
 Believe this to be the older versions way for starting the server
 
-$ python hello.py runserver --host 0.0.0.0
+$python hello.py runserver --host 0.0.0.0
 
 The --host 0.0.0.0 makes the server available to hosts outside your local host
 It also disables debugging
  
+
+$export FLASK_DEBUG=1
+$flask run
+
+These commands will:
+ - activate the debugger
+ - activate the automatic reloader
+ - enable debug mode on Flask app
