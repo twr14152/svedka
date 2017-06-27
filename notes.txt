@@ -36,3 +36,12 @@ These commands will:
  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
 ^C(flaskproject1) <>@<>:~/Dev/flaskproject1/project1 $ 
 
+********************
+To start virtual env
+********************
+pi@raspberrypi:~/Dev/flaskproject1/bin$ ls -l 
+total 3776 
+-rw-r--r-- 1 pi pi 2085 Mar 5 13:53 activate
+<cropped> 
+pi@raspberrypi:~/Dev/flaskproject1/bin$ . activate
+(flaskproject1) pi@raspberrypi:~/Dev/flaskproject1/bin$
