@@ -1,6 +1,7 @@
 To start web server
 
 This is the way the way the most recent flasks docs showed to start web service
+The export command needs to be rerun if you log in with a new shell.
 
 $export FLASK_APP=hello.py
 $flask run --host=0.0.0.0
