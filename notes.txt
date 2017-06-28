@@ -1,3 +1,11 @@
+06/28/2017 - Testing various features of Flask in hello.py script. Will expand scope as understanding increases.
+Files added today
+  - hello.py - main script
+  - startscript - starts web server
+  - Template/hi.html - template
+
+**********
+
 To start web server
 
 This is the way the way the most recent flasks docs showed to start web service
