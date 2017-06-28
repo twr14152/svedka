@@ -5,7 +5,3 @@
 3. Document as we go
 4. <>
 
-
-
-
-# svedka
