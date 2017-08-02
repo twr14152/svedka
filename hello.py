@@ -56,7 +56,6 @@ def user(id):
          abort(404)
     return '<h1>Hello, %s</h1>' % user.name
 
-
 if __name__ == '__main__':
     #allows other devices to access this service
     app.run(debug = True,host="0.0.0.0")
