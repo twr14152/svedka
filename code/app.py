@@ -8,9 +8,10 @@ class Student(Resource):
     def get(self, name):
         return {"student": name}
 
-# http://127.0.0.1:5000/student/Chester
+# http://x.x.x.x:5000/student/Chester
+# flask_restful module removes need for creating decorators
+#
 api.add_resource(Student, "/student/<string:name>")
 
 
 app.run(host="0.0.0.0", port=5000)
-~                                      
