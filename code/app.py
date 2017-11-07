@@ -1,3 +1,4 @@
+#!/home/pi/API_Class/venv/bin/python3
 from flask import Flask, request
 from flask_restful import Resource, Api
 
