@@ -18,7 +18,7 @@ class Item(Resource):
     def post(self, name):
         item = {"name": name, "price": 12.00}
         items.append(item)
-        return item, 201 # Code 201 is for created
+        return item, 201 #Code 201 is for created
 
 
 
