@@ -25,4 +25,4 @@ class Item(Resource):
 api.add_resource(Item, "/item/<string:name>") 
 
 # Host app.py on Raspian host and test from different machine
-app.run(host="0.0.0.0", port=5000)
+app.run(host="0.0.0.0", port=5000, debug=True)
