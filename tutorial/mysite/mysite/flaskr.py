@@ -88,6 +88,6 @@ def logout():
     flash('You were logged out')
     return redirect(url_for('show_entries'))
 
-
+#Run the app without Flask run command
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")
