@@ -1,0 +1,7 @@
+ from mysite/ directory
+ 
+ 2097  export FLASK_APP=mysite/flaskr.py
+ 2098  flask run
+ 2099  flask initdb
+
+
