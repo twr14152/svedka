@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<style>
+div {
+margin-top: 15px;
+margin-right: 15px;
+margin-bottom: 15px;
+margin-left: 15px;
+}
+</style>
+		<title>New Item</title>
+	</head>
+	<!-- comments-->
+
+	<body>
+		<div>
+	<form action = "{{ url_for('add_item') }}" method = "POST">
+         <h3>Item  Information</h3>
+         id<br>
+         <input type = "text" name = "id" /></br>
+
+	 desc<br>
+         <textarea name = "desc" ></textarea><br>
+
+         count<br>
+         <input type = "int" name = "count" /><br>
+
+         image_url<br>
+         <input type = "text" name = "image_url" /><br>
+         <input type = "submit" value = "submit" /><br>
+      	</form>
+		</div>
+	</body>
+</html>
+
