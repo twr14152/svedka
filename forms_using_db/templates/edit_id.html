@@ -1,14 +1,14 @@
 {% extends "base.html" %}
-{% block title %}Edit ID{% endblock %}
+{% block title %}Edit user id{% endblock %}
 {% block head %}
 {% endblock %}
 {% block content %}
 <div class="jumbotron">
 	<form method='POST' action = "{{ url_for('edit_row_id', id='id') }}">
-         <h3>Edit item</h3>
-         id<br>
+         <h3>Edit user</h3>
+         Old email<br>
 	 <input type = "text" name = "id" value='{{id}}'> </br>
-	 new_id<br>
+	 New email<br>
 	 <input type = "text" name = "new_id" value='{{new_id}}'><br>
 	<input type='submit' value="Submit" class='btn-primary'>
 	</form>
