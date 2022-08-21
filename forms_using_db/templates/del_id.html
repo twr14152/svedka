@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Delete User{% endblock %}
+{% block head %}
+{% endblock %}
+{% block content %}
+<div class="jumbotron">
+	<form method='POST' action = "{{ url_for('del_row_id', id='id') }}">
+         <h3>Delete User</h3>
+         Email<br>
+	 <input type = "text" name = "id" value='{{id}}'> </br>
+	<input type='submit' value="Submit" class='btn-primary'>
+      	</form>
+</div>
+{% endblock %}
