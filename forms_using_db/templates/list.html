@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Edit user id{% endblock %}
+{% block head %}
+{% endblock %}
+{% block content %}
+<div class="jumbotron">
+		<title>C&B Quoting System</title>
+	</head>
+	<!-- comments-->
+
+	<body>
+ 	<div>
+ 	    <h1>User Database</h1>
+	<table border = 1>
+         <thead>
+            <td>USER ID</td>
+	    <td>Monthly_Costs</td>
+         </thead>
+
+         {% for row in rows %}
+            <tr>
+               <td>{{row["id"]}}</td>
+               <td>{{row["monthly_costs"]}}</td>
+            </tr>
+         {% endfor %}
+      </table>
+
+      <br><br>
+
+      <a href = "/">Go back to home page</a>
+	</div>
+	</body>
+</div>
+{% endblock %}
