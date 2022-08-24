@@ -14,13 +14,13 @@
 	<table border = 1>
          <thead>
             <td>USER ID</td>
-	    <td>Monthly_Costs</td>
+	    <td>MONTHLY EXPENSES</td>
          </thead>
 
          {% for row in rows %}
             <tr>
                <td>{{row["id"]}}</td>
-               <td>{{row["monthly_costs"]}}</td>
+               <td>{{row["monthly_expenses"]}}</td>
             </tr>
          {% endfor %}
       </table>
