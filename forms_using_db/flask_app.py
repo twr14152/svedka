@@ -7,7 +7,7 @@ app = Flask(__name__)
 conn = sql.connect('database.db')
 print("DB openned successfully")
 
-conn.execute("CREATE TABLE IF NOT EXISTS user_info (id TEXT, monthly_costs INT)")
+conn.execute("CREATE TABLE IF NOT EXISTS user_info (id TEXT, monthly_expenses INT)")
 print("Table created successfully")
 conn.close()
 
@@ -25,13 +25,13 @@ def add_item():
    if request.method == 'POST':
       try:
          id = request.form['id']
-         monthly_costs = request.form['monthly_costs']
+         monthly_expenses = request.form['monthly_expenses']
 
 
          with sql.connect("database.db") as con:
             cur = con.cursor()
 
-            cur.execute("INSERT INTO user_info (id,monthly_costs) VALUES (?,?)",(id,monthly_costs))
+            cur.execute("INSERT INTO user_info (id,monthly_expenses) VALUES (?,?)",(id,monthly_expenses))
 
             con.commit()
             msg = "Record successfully added"
@@ -72,20 +72,20 @@ def edit_row_id(id):
 
 
 
-@app.route('/edit_monthly_costs')
-def edit_monthly_costs():
-    return render_template("edit_monthly_costs.html")
+@app.route('/edit_monthly_expenses')
+def edit_monthly_expenses():
+    return render_template("edit_monthly_expenses.html")
 
 
-@app.route('/edit_row_monthly_costs/<id>', methods=['GET', 'POST'])
-def edit_row_monthly_costs(id):
+@app.route('/edit_row_monthly_expenses/<id>', methods=['GET', 'POST'])
+def edit_row_monthly_expenses(id):
     if request.method=='POST':
         try:
             id=request.form['id']
-            monthly_costs=request.form['monthly_costs']
+            monthly_expenses=request.form['monthly_expenses']
             with sql.connect("database.db") as con:
                 cur=con.cursor()
-                cur.execute("UPDATE user_info SET monthly_costs=? WHERE id=?",(monthly_costs, id))
+                cur.execute("UPDATE user_info SET monthly_expenses=? WHERE id=?",(monthly_expenses, id))
                 con.commit()
                 msg = "Updated successfully"
         except:
