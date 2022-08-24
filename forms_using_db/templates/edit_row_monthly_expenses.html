@@ -4,12 +4,12 @@
 {% endblock %}
 {% block content %}
 <div class="jumbotron">
-	<form method='POST' action = "{{ url_for('edit_row_monthly_costs', id='id') }}">
-         <h3>Edit Costs</h3>
+	<form method='POST' action = "{{ url_for('edit_row_monthly_expenses', id='id') }}">
+         <h3>Edit Expenses</h3>
          Email<br>
 	 <input type = "text" name = "id" value='{{id}}'> </br>
-	 Monthly_Costs<br>
-	 <input type = "int" name = "monthly_costs" value='{{monthly_costs}}'><br>
+	 Monthly_Expenses<br>
+	 <input type = "int" name = "monthly_expenses" value='{{monthly_expenses}}'><br>
 	<input type='submit' value="Submit" class='btn-primary'>
 	</form>
 </div>
