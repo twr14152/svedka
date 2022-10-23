@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<style>
+div {
+margin-top: 15px;
+margin-right: 15px;
+margin-bottom: 15px;
+margin-left: 15px;
+}
+</style>
+
+		<title>C&B Quoting System</title>
+	</head>
+	<!-- comments-->
+
+	<body>
+ 	<div>
+ 	    <h1>C&B Quoting System</h1>
+	<table border = 1>
+         <thead>
+        <td>id</td>
+	    <td>first_name</td>
+	    <td>last_name</td>
+        <td>email</td>
+	    <td>password</td>
+	    <td>operational_cost</td>
+         </thead>
+
+         {% for row in rows %}
+            <tr>
+               <td>{{row["id"]}}</td>
+               <td>{{row["first_name"]}}</td>
+               <td>{{row["last_name"]}}</td>
+               <td> {{row["email"]}}</td>
+	           <td>{{row["password"]}}</td>
+	           <td>{{row["operational_cost"]}}</td>
+            </tr>
+         {% endfor %}
+      </table>
+
+      <br><br>
+      <a href = "/">Go back to home page</a>
+	</div>
+      </body>
+</html>
