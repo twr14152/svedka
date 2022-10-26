@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<body>
+ 	<div>
+ 	    <h1>C&B Quoting System</h1>
+	<table border = 1>
+         <thead>
+ 	    <td>operational_cost</td>
+	    {% for row in rows%}
+	    </thead>
+	    <td>{{row["operational_cost"]}}</td>
+	    {% endfor %}
+      </table>
+      <!--<p>The total cost is {{ total_cost }}<p>-->
+      <br><br>
+      <a href = "/">Go back to home page</a>
+	</div>
+      </body>
+{% endblock %}
