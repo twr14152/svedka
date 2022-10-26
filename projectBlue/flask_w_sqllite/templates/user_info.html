@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<body>
+	<div>
+		<form method='POST' action = "{{ url_for('userId', id='id') }}">
+         <h3>GET USER INFO</h3>
+         id<br>
+	<input type = "text" name = "id" value='{{id}}'> </br>
+	<input type='submit' value="Submit" class='btn-primary'>
+      	</form>
+	</div>
+	</body>
+{% endblock %}
