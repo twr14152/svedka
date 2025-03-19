@@ -1,4 +1,6 @@
-### This is be boiler plate for admin/auth for future app. Moving away from sqlalchemy sticking with raw sql.
+- This is boiler plate code for admin/auth.
+- Using raw sql
+- Fundamentals for an app auth are in this code
 
 
 
