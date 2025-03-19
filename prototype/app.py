@@ -36,7 +36,7 @@ def init_db():
     # Ensure an admin account exists
     admin_exists = db.execute("SELECT 1 FROM users WHERE is_admin = 1").fetchone()
     if not admin_exists:
-        hashed_password = generate_password_hash('####')  # Default admin password
+        hashed_password = generate_password_hash('<<enter_clear_text_password>>')  # Default admin password
         db.execute("INSERT INTO users (username, password, is_admin) VALUES (?, ?, ?)",
                    ('admin', hashed_password, 1))
         db.commit()
