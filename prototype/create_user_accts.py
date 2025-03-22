@@ -2,6 +2,7 @@
 import sqlite3 as sql
 from werkzeug.security import generate_password_hash
 
+#This allows you the admin to create accounts manually through cli
 
 email = input("Enter email: ")
 password = input("Enter password: ")
