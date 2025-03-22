@@ -55,6 +55,8 @@ def logout():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    if 'user_id' not in session:
+        return redirect('/login')  # If logged in, redirect to the dashboard
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
