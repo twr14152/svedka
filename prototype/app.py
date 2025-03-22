@@ -4,7 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 # Initialize the Flask app
 app = Flask(__name__)
-app.secret_key = '#######'
+app.secret_key = '#########'
 
 # SQLite database location
 DATABASE = 'users.db'
@@ -36,17 +36,22 @@ def init_db():
     # Ensure an admin account exists
     admin_exists = db.execute("SELECT 1 FROM users WHERE is_admin = 1").fetchone()
     if not admin_exists:
-        hashed_password = generate_password_hash('<<enter_clear_text_password>>')  # Default admin password
+        hashed_password = generate_password_hash('###')  # Default admin password
         db.execute("INSERT INTO users (username, password, is_admin) VALUES (?, ?, ?)",
                    ('admin', hashed_password, 1))
         db.commit()
-        print("Admin account created with username: 'admin' and password: 'bigDog'.")
+        print("Admin account created with username: 'admin' and password: '###'.")
 
 @app.route('/')
 def index():
-    if 'user_id' in session:
-        return redirect('/dashboard')  # If logged in, redirect to the dashboard
+    if 'user_id' not in session:
+        return redirect('/login')  # If logged in, redirect to the dashboard
     return render_template('index.html')  # Otherwise, show the index page
+
+@app.route('/logout')
+def logout():
+    session.pop('user_id', None)  # Removes the user_id from the session
+    return redirect('/login')  # Redirect to the login page
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -80,11 +85,75 @@ def login():
         return "Invalid credentials."
     return render_template('login.html')
 
+
 @app.route('/dashboard')
 def dashboard():
     if 'user_id' not in session:
-        return redirect('/login')
-    return f"Welcome, user {session['user_id']}!"
+        return redirect('/login')  # Ensure the user is logged in
+
+    db = get_db()
+    user = db.execute("SELECT username FROM users WHERE id = ?", (session['user_id'],)).fetchone()
+
+    if not user:
+        return "User not found.", 404  # Handle cases where the user doesn't exist
+
+    username = user['username']  # Extract the username
+    return render_template('dashboard.html', username=username)
+
+
+@app.route('/change_password', methods=['GET', 'POST'])
+def change_password():
+    if 'user_id' not in session:
+        return redirect('/login')  # Ensure the user is logged in
+
+    if request.method == 'POST':
+        old_password = request.form['old_password']
+        new_password = request.form['new_password']
+
+        db = get_db()
+        user = db.execute("SELECT * FROM users WHERE id = ?", (session['user_id'],)).fetchone()
+
+        # Verify the old password and update to the new password
+        if user and check_password_hash(user['password'], old_password):
+            hashed_new_password = generate_password_hash(new_password)
+            db.execute("UPDATE users SET password = ? WHERE id = ?", (hashed_new_password, session['user_id']))
+            db.commit()
+            return "Password successfully changed!"
+        else:
+            return "Invalid old password."
+
+    return render_template('change_password.html')
+
+@app.route('/fill_form', methods=['GET', 'POST'])
+def fill_form():
+    if 'user_id' not in session:
+        return redirect('/login')  # Ensure the user is logged in
+
+    if request.method == 'POST':
+        form_data = request.form['form_data']  # Replace 'form_data' with your actual form fields
+        # Process the form data (e.g., save it to the database)
+        return redirect('/dashboard')
+
+    return render_template('form.html')
+
+@app.route('/generate_quote', methods=['GET', 'POST'])
+def generate_quote():
+    if 'form_data' not in session:  # Ensure there’s data saved in the session
+        return redirect('/fill_form')  # Redirect back to fill_form if no data exists
+
+    if request.method == 'POST':
+        # Access the initial data and new input
+        initial_data = session['form_data']  # Retrieve the previous form data
+        new_input = request.form['additional_data']
+
+        # Perform the desired computation
+        computed_result = f"Processed: {initial_data} and {new_input}"  # Example computation
+        return f"Quote generated based on your input: {computed_result}"
+
+    # Display the form to gather additional data
+    return render_template('generate_quote.html', initial_data=session['form_data'])
+
+
 
 @app.route('/admin', methods=['GET', 'POST'])
 def admin():
