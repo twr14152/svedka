@@ -53,6 +53,9 @@ def logout():
     session.pop('user_id', None)  # Removes the user_id from the session
     return redirect('/login')  # Redirect to the login page
 
+
+### Disabling function as enrollement will not be done by client but by administrator in admin section ###
+'''
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if 'user_id' not in session:
@@ -70,6 +73,7 @@ def register():
         except sqlite3.IntegrityError:
             return "Username already exists."
     return render_template('register.html')
+'''
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
